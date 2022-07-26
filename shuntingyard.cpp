@@ -73,7 +73,9 @@ Queue<Token*> infixToPostfix(Queue<Token*> infixExpression){
                     }
                     // pop left parentheses off stack
 
-                    if(debug)cout<<"popping the open paren: "<<static_cast<Operator*>(operators.pop())->getOp()<<endl;
+                    if(debug)cout<<"popping the open paren: ";
+                    static_cast<Operator*>(operators.pop())->getOp();
+                    cout<<endl;
                 }
                 else{
                     while(!operators.empty() && topOp->getOp() != '(' && t->precedence() <= operators.top()->precedence()){
